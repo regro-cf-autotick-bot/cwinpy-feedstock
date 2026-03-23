@@ -1,5 +1,5 @@
 {% set name = "cwinpy" %}
-{% set version = "1.4.2" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9e75343fdf4fcd5a95e09c78db0eb16400bb6a35072a7493fb3b0f862d07de7f
+  sha256: 43dbec0b97663111b37b68d7ad5042fb5fb8db9fdab6f825c814d6210788c3f6
   patches:
     # to update the patches for a new release:
     #
@@ -39,7 +39,7 @@ build:
     - cwinpy_pe = cwinpy.pe.pe:pe_cli
     - cwinpy_pe_pipeline = cwinpy.pe.pe:pe_pipeline_cli
     - cwinpy_pe_generate_pp_plots = cwinpy.pe.testing:generate_pp_plots
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   # requirements aren't available for Windows, aarch64 or python>3.12
   skip: true  # [win or aarch64 or ppc64le or py>=313]
